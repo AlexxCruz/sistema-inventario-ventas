@@ -1,4 +1,4 @@
 package com.brayan.sistema_inventario_ventas.controlador;
 
-public class DetalleVnetaControlador {
+public class DetalleVentaControlador {
 }
