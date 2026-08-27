@@ -1,39 +1,106 @@
 <h3 class="mb-4">Panel de Control</h3>
+
+<!-- Fila 1: Tarjetas de métricas superiores -->
 <div class="row g-4">
-    <!-- Tarjeta 1: Total de Productos -->
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm bg-primary text-white">
-            <div class="card-body d-flex align-items-center justify-content-between">
-                <div>
-                    <h6 class="card-subtitle mb-2 opacity-75">Productos Registrados</h6>
-                    <h2 class="card-title mb-0 fw-bold">120</h2>
-                </div>
-                <i class="bi bi-box-seam display-5"></i>
-            </div>
+  <!-- Tarjeta 1: Total de Productos -->
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm bg-primary text-white">
+      <div class="card-body d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="card-subtitle mb-2 opacity-75">Productos Registrados</h6>
+          <h2 class="card-title mb-0 fw-bold">120</h2>
         </div>
+        <i class="bi bi-box-seam display-5"></i>
+      </div>
     </div>
-    <!-- Tarjeta 2: Ventas del Día -->
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm bg-success text-white">
-            <div class="card-body d-flex align-items-center justify-content-between">
-                <div>
-                    <h6 class="card-subtitle mb-2 opacity-75">Ventas Hoy</h6>
-                    <h2 class="card-title mb-0 fw-bold">$2,450.00</h2>
-                </div>
-                <i class="bi bi-cart-check display-5"></i>
-            </div>
+  </div>
+
+  <!-- Tarjeta 2: Ventas del Día -->
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm bg-success text-white">
+      <div class="card-body d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="card-subtitle mb-2 opacity-75">Ventas Hoy</h6>
+          <h2 class="card-title mb-0 fw-bold">$2,450.00</h2>
         </div>
+        <i class="bi bi-cart-check display-5"></i>
+      </div>
     </div>
-    <!-- Tarjeta 3: Alerta de Stock Bajo -->
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm bg-danger text-white">
-            <div class="card-body d-flex align-items-center justify-content-between">
-                <div>
-                    <h6 class="card-subtitle mb-2 opacity-75">Stock Bajo</h6>
-                    <h2 class="card-title mb-0 fw-bold">5</h2>
-                </div>
-                <i class="bi bi-exclamation-triangle display-5"></i>
-            </div>
+  </div>
+
+  <!-- Tarjeta 3: Alerta de Stock Bajo -->
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm bg-danger text-white">
+      <div class="card-body d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="card-subtitle mb-2 opacity-75">Stock Bajo</h6>
+          <h2 class="card-title mb-0 fw-bold">5</h2>
         </div>
+        <i class="bi bi-exclamation-triangle display-5"></i>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- Fila 2: Acciones rápidas y Tabla de ventas -->
+<div class="row mt-4">
+  <!-- Columna izquierda: Acciones Rápidas -->
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-white fw-bold">
+        <i class="bi bi-lightning-charge me-1"></i> Acciones Rápidas
+      </div>
+      <div class="card-body d-grid gap-2">
+        <button class="btn btn-primary" type="button">
+          <i class="bi bi-cart-plus me-1"></i> Nueva Venta
+        </button>
+        <button class="btn btn-outline-secondary" type="button">
+          <i class="bi bi-box-seam me-1"></i> Agregar Producto
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna derecha: Tabla de Últimas Ventas -->
+  <div class="col-md-8">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-white fw-bold">
+        <i class="bi bi-clock-history me-1"></i> Últimas Ventas Registradas
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Total</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#001</td>
+                <td>Juan Pérez</td>
+                <td>$450.00</td>
+                <td><span class="badge bg-success">Completado</span></td>
+              </tr>
+              <tr>
+                <td>#002</td>
+                <td>María Gómez</td>
+                <td>$1,200.00</td>
+                <td><span class="badge bg-success">Completado</span></td>
+              </tr>
+              <tr>
+                <td>#003</td>
+                <td>Carlos López</td>
+                <td>$800.00</td>
+                <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
