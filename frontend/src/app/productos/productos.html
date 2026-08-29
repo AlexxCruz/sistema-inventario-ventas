@@ -4,7 +4,7 @@
     <h3 class="mb-0 fw-bold">Gestión de Productos</h3>
     <p class="text-muted small mb-0">Administra el inventario de tu negocio</p>
   </div>
-  
+
   <!-- Botón activador con los atributos correctos -->
   <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProducto">
     <i class="bi bi-plus-lg me-1"></i> Nuevo Producto
@@ -20,7 +20,8 @@
           <span class="input-group-text bg-white border-end-0">
             <i class="bi bi-search text-muted"></i>
           </span>
-          <input type="text" class="form-control border-start-0" placeholder="Buscar por nombre o código..." [(ngModel)] = "textoBusqueda">
+          <input type="text" class="form-control border-start-0" placeholder="Buscar por nombre o código..."
+            [(ngModel)]="textoBusqueda">
         </div>
       </div>
       <div class="col-md-4">
@@ -57,10 +58,12 @@
             <td>{{prod.nombre}}</td>
             <td><span class="badge bg-secondary">{{prod.categoria}}</span></td>
             <td>${{prod.precio}}</td>
-            <td>            <!--ngClass recibira la palabra-->
-              <span class="badge" [ngClass]="prod.stock > 5 ? 'bg-success' : (prod.stock > 0 ? 'bg-warning text-dark ' : ' bg-danger')">
+            <td> <!--ngClass recibira la palabra-->
+              <span class="badge"
+                [ngClass]="prod.stock > 5 ? 'bg-success' : (prod.stock > 0 ? 'bg-warning text-dark ' : ' bg-danger')">
                 {{prod.stock}} unidades
-              </span></td>
+              </span>
+            </td>
             <td class="text-end">
               <button class="btn btn-sm btn-outline-primary me-1" title="Editar">
                 <i class="bi bi-pencil"></i>
@@ -70,13 +73,13 @@
               </button>
             </td>
           </tr>
-        }@empty {
+          }@empty {
           <tr>
             <td colspan="6" class="text-center py-4 text-muted">
               No hay productos registrados en el inventario
             </td>
           </tr>
-        }
+          }
         </tbody>
       </table>
     </div>
@@ -87,7 +90,7 @@
 <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      
+
       <div class="modal-header">
         <h5 class="modal-title fw-bold">Agregar Nuevo Producto</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -95,33 +98,37 @@
 
       <div class="modal-body">
         <form>
+          <!--1 nombre-->
           <div class="mb-3">
             <label class="form-label">Nombre del Producto</label>
-            <input type="text" class="form-control" placeholder="Ej. Teclado Mecánico RGB">
+            <input type="text" class="form-control" placeholder="Ej. Teclado Mecánico RGB"
+              [(ngModel)]="nuevoProducto.nombre" name="nombreProducto">
           </div>
+          <!--2 Categoria-->
           <div class="mb-3">
             <label class="form-label">Categoría</label>
-            <select class="form-select">
-              <option selected>Selecciona una categoría</option>
+            <select class="form-select" [(ngModel)]="nuevoProducto.categoria" name="categoriaProducto">
               <option value="Electrónica">Electrónica</option>
               <option value="Abarrotes">Abarrotes</option>
               <option value="Ropa">Ropa</option>
             </select>
           </div>
+          <!--3 Precio-->
           <div class="mb-3">
             <label class="form-label">Precio ($)</label>
-            <input type="number" class="form-control" placeholder="0.00">
+            <input type="number" class="form-control" placeholder="0.00" [(ngModel)]="nuevoProducto.precio" name="precioProducto">
           </div>
+          <!--4 stock-->
           <div class="mb-3">
             <label class="form-label">Stock Inicial</label>
-            <input type="number" class="form-control" placeholder="0">
+            <input type="number" class="form-control" placeholder="0" [(ngModel)]="nuevoProducto.stock" name="stockProducto">
           </div>
         </form>
       </div>
-
+      <!--5  boton guardar-->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Guardar Producto</button>
+        <button type="button" class="btn btn-primary" (click)="agregarProducto()" data-bs-dismiss="modal">Guardar Producto</button>
       </div>
 
     </div>

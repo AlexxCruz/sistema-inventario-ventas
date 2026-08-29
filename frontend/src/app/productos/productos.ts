@@ -53,7 +53,7 @@ export class Productos {
   nuevoProducto: Producto = {
     codigo: '',
     nombre: '',
-    categoria: ' Electronica',
+    categoria: 'Electronica',
     precio: 0,
     stock: 0
   };
