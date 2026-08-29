@@ -78,5 +78,14 @@ this.nuevoProducto = {
 };
 }
 
+//metodo eliminar producto por su codigo
+eliminarProducto(codigo: String): void{
+  const confirmacion = confirm(`Estas seguro de eliminar el producto ${codigo}`)
+
+  if(confirmacion){
+    //mantenemos en la lista solo los productos curyo codigo sea diferente al seleccionado
+    this.productos = this.productos.filter(prod => prod.codigo !== codigo);
+  }
+}
 
 }

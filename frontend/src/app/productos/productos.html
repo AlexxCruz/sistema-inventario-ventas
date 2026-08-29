@@ -68,7 +68,7 @@
               <button class="btn btn-sm btn-outline-primary me-1" title="Editar">
                 <i class="bi bi-pencil"></i>
               </button>
-              <button class="btn btn-sm btn-outline-danger" title="Eliminar">
+              <button class="btn btn-sm btn-outline-danger" title="Eliminar" (click)="eliminarProducto(prod.codigo)">
                 <i class="bi bi-trash"></i>
               </button>
             </td>
@@ -130,7 +130,6 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="agregarProducto()" data-bs-dismiss="modal">Guardar Producto</button>
       </div>
-
     </div>
   </div>
 </div>
