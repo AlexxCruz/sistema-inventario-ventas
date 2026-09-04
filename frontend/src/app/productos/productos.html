@@ -6,7 +6,7 @@
   </div>
 
   <!-- Botón activador con los atributos correctos -->
-  <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProducto">
+  <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProducto" (click)="prepararNuevoProducto()">
     <i class="bi bi-plus-lg me-1"></i> Nuevo Producto
   </button>
 </div>
@@ -21,7 +21,7 @@
             <i class="bi bi-search text-muted"></i>
           </span>
           <input type="text" class="form-control border-start-0" placeholder="Buscar por nombre o código..."
-            [(ngModel)]="textoBusqueda">
+            [(ngModel)]="textoBusqueda" name="textoBusqueda">
         </div>
       </div>
       <div class="col-md-4">
@@ -65,7 +65,7 @@
               </span>
             </td>
             <td class="text-end">
-              <button class="btn btn-sm btn-outline-primary me-1" title="Editar">
+              <button class="btn btn-sm btn-outline-primary me-1" title="Editar" data-bs-toggle="modal" data-bs-target="#modalProducto" (click)="prepararEdicion(prod)">
                 <i class="bi bi-pencil"></i>
               </button>
               <button class="btn btn-sm btn-outline-danger" title="Eliminar" (click)="eliminarProducto(prod.codigo)">
@@ -73,7 +73,7 @@
               </button>
             </td>
           </tr>
-          }@empty {
+          } @empty {
           <tr>
             <td colspan="6" class="text-center py-4 text-muted">
               No hay productos registrados en el inventario
@@ -92,12 +92,14 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title fw-bold">Agregar Nuevo Producto</h5>
+        <h5 class="modal-title fw-bold">
+          {{ modoEdicion ? 'Editar Producto' : 'Agregar Nuevo Producto' }}
+        </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <div class="modal-body">
-        <form>
+        <div>
           <!--1 nombre-->
           <div class="mb-3">
             <label class="form-label">Nombre del Producto</label>
@@ -108,7 +110,7 @@
           <div class="mb-3">
             <label class="form-label">Categoría</label>
             <select class="form-select" [(ngModel)]="nuevoProducto.categoria" name="categoriaProducto">
-              <option value="Electrónica">Electrónica</option>
+              <option value="Electronica">Electrónica</option>
               <option value="Abarrotes">Abarrotes</option>
               <option value="Ropa">Ropa</option>
             </select>
@@ -123,13 +125,20 @@
             <label class="form-label">Stock Inicial</label>
             <input type="number" class="form-control" placeholder="0" [(ngModel)]="nuevoProducto.stock" name="stockProducto">
           </div>
-        </form>
+        </div>
       </div>
-      <!--5  boton guardar-->
+
+      <!--5 boton guardar-->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" (click)="agregarProducto()" data-bs-dismiss="modal">Guardar Producto</button>
+        
+        @if (modoEdicion) {
+          <button type="button" class="btn btn-primary" (click)="actualizarProducto()" data-bs-dismiss="modal">Guardar Cambios</button>
+        } @else {
+          <button type="button" class="btn btn-primary" (click)="agregarProducto()" data-bs-dismiss="modal">Guardar Producto</button>
+        }
       </div>
+
     </div>
   </div>
 </div>
